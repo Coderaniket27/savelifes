@@ -7,7 +7,7 @@ const FormModel = require('./FormModel');
 app.use(express.json()); // middleware
 app.use(express.urlencoded({extended: true})); 
 app.use(cors())
-const port = 3001
+const port = process.env.PORT || 3001
 const mongoURI = 'mongodb+srv://aniket:1q2w3e4r5t@cluster0.2dal9.mongodb.net/bck?retryWrites=true&w=majority';
 
 
