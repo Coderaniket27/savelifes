@@ -23,6 +23,9 @@ mongoose.connect(mongoURI, {
 app.get('/', (req, res) => {
     res.send('Hello World Aniket!')
   })
+  app.get('/hero', (req, res) => {
+    res.send('Hero beta!')
+  })
   app.post('/register', async (req, res) => {
     console.log(req.body);
     const { password, name, phone, email,address,query } = req.body;
