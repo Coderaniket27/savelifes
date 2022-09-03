@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 var cors = require('cors')
 
-const FormModel = require('./FormModel');
+// const FormModel = require('./FormModel');
 app.use(express.json()); // middleware
 app.use(express.urlencoded({extended: true})); 
 app.use(cors())
@@ -11,14 +11,14 @@ const port = process.env.PORT || 3001
 const mongoURI = 'mongodb+srv://aniket:1q2w3e4r5t@cluster0.2dal9.mongodb.net/bck?retryWrites=true&w=majority';
 
 
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }).then((res) => {
-     //console.log(res);
+// mongoose.connect(mongoURI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   }).then((res) => {
+//      //console.log(res);
      
-    console.log('Connected to  congo database');
-  })
+//     console.log('Connected to  congo database');
+//   })
 
 app.get('/', (req, res) => {
     res.send('Hello World Aniket!')
