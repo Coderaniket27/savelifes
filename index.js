@@ -28,9 +28,9 @@ app.get('/', (req, res) => {
   })
   app.post('/register', async (req, res) => {
     console.log(req.body);
-    const { password, name, phone, email,address,query } = req.body;
+    const {  name, phone, email,address,query } = req.body;
 
-    if(!password || !name || !phone ||!address||!query) {
+    if( !name || !phone ||!address||!query) {
         return res.send({
             status: 400,
             message: "Missing data from 1",
@@ -41,13 +41,7 @@ app.get('/', (req, res) => {
     
     
 
-    if(password.length > 11) {
-        return res.send({
-            status: 400,
-            message: "Invalid password",
-            data: req.body
-        })
-    }
+    
 if(query.length && address.length <5){
     return res.send({
         status: 400,
@@ -79,7 +73,7 @@ catch(err){
 }
 let formData = new FormModel({
     name: name,
-    password: password,
+
     phone: phone,
     query:query,
     address:address
