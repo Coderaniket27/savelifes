@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
     if( !name || !phone ||!address||!query) {
         return res.send({
             status: 400,
-            message: "Missing data from 1",
+            message: "Missing data",
             data: req.body
         })
     }
@@ -76,7 +76,7 @@ catch(err){
     console.log(err)
    return res.send({
         status: 400,
-        message: "Database  seeeee error",
+        message: "Database   error",
         error: err
         
     })
