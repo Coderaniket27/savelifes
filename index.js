@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose');
 var cors = require('cors')
+var validator = require("email-validator");
+
 
 const FormModel = require('./FormModel.js');
 app.use(express.json()); // middleware
@@ -52,9 +54,9 @@ if(query.length && address.length <5){
     // Write into DB
         try {
             let email =req.body.email;
-
+            if(validator.validate(email)){
             let formDs = await FormModel.findOne({email:email})
-            console.log(email);
+            console.log("hello kavya .......");
             if(formDs) {
                 return res.send({
                     status: 401,
@@ -62,6 +64,14 @@ if(query.length && address.length <5){
                 })
             }
         }
+        else{
+
+            return res.send({
+                status:400,
+                message: "email is not valid"
+            })
+        }
+    }
 catch(err){
     console.log(err)
    return res.send({
@@ -104,6 +114,7 @@ if(email)
         })
     }
 })
+
 app.post('/update', async(req, res) => {
     let name = req.body.name;
     let newData = req.body.newData;
