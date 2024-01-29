@@ -221,7 +221,7 @@ app.post("/login", (req, res) => {
   if (!email || !password) {
     return res
       .status(400)
-      .json({ message: "Please provide email and password" });
+      .json({ message: "Please provide email and passwords" });
   }
 
   // Find the user by email address in your database or data source
